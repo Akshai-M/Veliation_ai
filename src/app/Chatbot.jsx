@@ -75,7 +75,63 @@ export default function Chatbot() {
           </div>
 
           {/* Edit Section */}
-          
+          {editTask && (
+            <div className="w-1/2 bg-white shadow-lg rounded-xl p-6 h-[90vh]">
+              <h2 className="text-xl font-semibold mb-4 text-gray-800">
+                Modify Task
+              </h2>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-800">
+                    Sequence Number
+                  </label>
+                  <input
+                    type="number"
+                    className="w-full mt-1 p-2 border border-gray-400 text-gray-800 rounded-lg "
+                    value={editTask.seqNo}
+                    onChange={(e) =>
+                      setEditTask({ ...editTask, seqNo: e.target.value })
+                    }
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-800">
+                    Task Description
+                  </label>
+                  <textarea
+                    className="w-full mt-1 p-2 border border-gray-400 text-gray-800 rounded-lg overflow-hidden"
+                    value={editTask.description}
+                    onChange={(e) =>
+                      setEditTask({ ...editTask, description: e.target.value })
+                    }
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-800">
+                    Status
+                  </label>
+                  <select
+                    className="w-full mt-1 p-2 border border-gray-400 text-gray-800 rounded-lg "
+                    value={editTask.status}
+                    onChange={(e) =>
+                      setEditTask({ ...editTask, status: e.target.value })
+                    }
+                  >
+                    <option>Pending</option>
+                    <option>In Progress</option>
+                    <option>Completed</option>
+                    <option>Error</option>
+                  </select>
+                </div>
+                <button
+                  className="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300"
+                  onClick={() => setShowModal(true)}
+                >
+                  Save Changes
+                </button>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Confirmation Modal */}
