@@ -79,7 +79,30 @@ export default function Chatbot() {
         </div>
 
         {/* Confirmation Modal */}
-        
+        {showModal && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="bg-white p-6 rounded-lg shadow-xl w-96">
+              <h3 className="text-lg font-semibold mb-4">Confirm Changes</h3>
+              <p className="text-sm text-gray-700">
+                Are you sure you want to modify this task?
+              </p>
+              <div className="flex justify-end mt-4 gap-2">
+                <button
+                  className="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400"
+                  onClick={() => setShowModal(false)}
+                >
+                  Cancel
+                </button>
+                <button
+                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                  onClick={handleSaveChanges}
+                >
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
