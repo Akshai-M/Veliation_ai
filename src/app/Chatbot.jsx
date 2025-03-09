@@ -23,6 +23,13 @@ export default function Chatbot() {
     },
   ];
 
+  const [tasks, setTasks] = useState(initialTasks);
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState("");
+  const [showContext, setShowContext] = useState(true);
+  const [editTask, setEditTask] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
   const handleSend = () => {
     if (!input.trim()) return;
     const matchedTask = tasks.find(
