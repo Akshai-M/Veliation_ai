@@ -71,7 +71,20 @@ export default function Chatbot() {
             </div>
 
             {/* Input Box */}
-            
+            <div className="flex items-center gap-2 mt-6 p-2 border-t border-gray-400">
+              <input
+                className="flex-grow p-3 border border-gray-400 text-black rounded-lg focus:outline-none  transition-shadow duration-300"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Enter task name..."
+              />
+              <button
+                className="px-4 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300 flex items-center gap-1"
+                onClick={handleSend}
+              >
+                <Send size={16} /> Send
+              </button>
+            </div>
           </div>
 
           {/* Edit Section */}
