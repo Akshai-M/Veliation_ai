@@ -1,0 +1,4 @@
+"source_bucket": "etl-input-9062"
+"destination_bucket": "etl-intermediate-9062"
+"source_key": "supermarket_sales - Sheet1.csv"
+"destination_key": "test.csv"

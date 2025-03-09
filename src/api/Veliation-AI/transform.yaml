@@ -1,0 +1,8 @@
+"source_bucket": "etl-intermediate-9062"
+"destination_bucket": "etl-sql-intermediate-9062"
+"source_key": "test.csv"
+"destination_key": "transformed.csv"
+"query": "SELECT Branch, SUM(Total) AS Total_Revenue 
+          FROM df 
+          GROUP BY Branch 
+          ORDER BY Total_Revenue DESC"
