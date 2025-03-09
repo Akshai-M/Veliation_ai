@@ -67,7 +67,50 @@ export default function Chatbot() {
             )}
 
             <div className="flex flex-col space-y-4 flex-grow overflow-y-auto">
-             
+              {messages.map((task, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                >
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="text-xl font-semibold mb-3 text-gray-800">
+                        {task.taskname}
+                      </h3>
+                      <p className="text-sm text-gray-700 mb-3">
+                        {task.description}
+                      </p>
+                      <div className="flex items-center mb-2">
+                        <span
+                          className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                            statusColors[task.status.toLowerCase()] ||
+                            "bg-gray-100 text-gray-800"
+                          }`}
+                        >
+                          {task.status}
+                        </span>
+                      </div>
+                      <div className="mt-4">
+                        <div className="w-full h-2 rounded-full bg-gray-200">
+                          <div
+                            className={`h-2 rounded-full ${
+                              statusColors[task.status.toLowerCase()]?.split(
+                                " "
+                              )[0] || "bg-gray-200"
+                            }`}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300 flex items-center gap-2"
+                      onClick={() => handleEdit(task)}
+                    >
+                      <Pencil size={16} /> Modify
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
 
             {/* Input Box */}
